@@ -35,11 +35,14 @@ def clean_data(df):
     df = pd.concat([df, categories], axis=1)
     # drop duplicates
     df.drop_duplicates(inplace=True)
+    # Remove rows having any value other than 0 or 1 in the target columns
+    for col in df.iloc[:,4:]:
+        df.drop(df.index[(df[col]>1) | (df[col]<0)], inplace=True)
     return df
 
 def save_data(df, database_filename):
     engine = create_engine('sqlite:///{}'.format(database_filename))
-    df.to_sql('MessageCategory', engine, index=False)
+    df.to_sql('MessageCategory', engine, index=False, if_exists='replace')
 
 def main():
     if len(sys.argv) == 4:
