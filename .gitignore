@@ -1,0 +1,4 @@
+data/.ipynb_checkpoints/
+models/.ipynb_checkpoints/
+models/cv_model.pickle
+models/msg_gnre_pipeline.pkl
