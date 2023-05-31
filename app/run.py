@@ -1,6 +1,7 @@
 import json
 import plotly
 import pandas as pd
+import sqlite3
 
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
@@ -12,7 +13,7 @@ from plotly.graph_objs import Bar
 import joblib
 from sqlalchemy import create_engine
 
-from classDefs import ItemSelector
+from classDefs import ItemSelector, StartingVerbExtractor, MessageLengthExtractor
 
 app = Flask(__name__)
 
@@ -28,11 +29,18 @@ def tokenize(text):
     return clean_tokens
 
 # load data
-engine = create_engine('sqlite:///../data/DisasterResponse.db')
-df = pd.read_sql_table('MessageCategory', engine)
+#engine = create_engine('sqlite:///../data/DisasterResponse.db')
+#df = pd.read_sql_table('MessageCategory', engine)
+
+# connect to the database
+conn = sqlite3.connect('../data/DisasterResponse.db')
+
+# run a query
+df=pd.read_sql('SELECT * FROM MessageCategory', conn)
 
 # load model
-model = joblib.load("../models/msg_gnre_pipeline.pkl")
+#model = joblib.load("../models/msg_gnre_pipeline.pkl")
+model = joblib.load("../models/more_features_model.pkl")
 
 
 # index webpage displays cool visuals and receives user input text for model
@@ -80,10 +88,13 @@ def index():
 @app.route('/go')
 def go():
     # save user input in query
-    query = request.args.get('query', '') 
+    query = request.args.get('query', '')
+    genre = request.args.get('genre', 'direct')    
 
     # use model to predict classification for query
-    classification_labels = model.predict([query])[0]
+    #print(query)
+    #classification_labels = model.predict([query])[0]
+    classification_labels = model.predict(pd.DataFrame(data={'message': query, 'genre':genre}, columns=['message', 'genre'], index=[1]))[0]
     classification_results = dict(zip(df.columns[4:], classification_labels))
 
     # This will render the go.html Please see that file. 
