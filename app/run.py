@@ -1,3 +1,5 @@
+#from responseapp import app
+
 import json
 import plotly
 import pandas as pd
@@ -162,8 +164,8 @@ def go():
     )
 
 
-def main():
-    app.run(host='0.0.0.0', port=3000, debug=True)
+#def main():
+#    app.run(host='0.0.0.0', port=3000, debug=True)
 
 
 if __name__ == '__main__':
