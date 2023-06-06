@@ -40,7 +40,8 @@ df=pd.read_sql('SELECT * FROM MessageCategory', conn)
 
 # load model
 #model = joblib.load("../models/msg_gnre_pipeline.pkl")
-model = joblib.load("../models/more_features_model.pkl")
+#model = joblib.load("../models/more_features_model.pkl")
+model = joblib.load("../models/cv_compressed_model.pkl")
 
 
 # index webpage displays cool visuals and receives user input text for model
@@ -52,6 +53,14 @@ def index():
     # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
+    
+    category_counts=df.iloc[:,4:].sum(axis=0)
+    category_names=list(df.columns)[4:]
+    
+    category_by_genre=df.groupby('genre').sum().iloc[:,4:].transpose().sort_values('direct', ascending=False)
+    direct_cat_counts=df[df['genre']=='direct'].iloc[:,4:].sum(axis=0)
+    news_cat_counts=df[df['genre']=='news'].iloc[:,4:].sum(axis=0)
+    social_cat_counts=df[df['genre']=='social'].iloc[:,4:].sum(axis=0)
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
@@ -73,7 +82,55 @@ def index():
                     'title': "Genre"
                 }
             }
+        },
+                {
+            'data': [
+                Bar(
+                    x=category_names,
+                    y=category_counts
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Message Categories',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Category"
+                }
+            }
+        },
+                {
+            'data': [
+                Bar(
+                    name='direct',
+                    x=category_names,
+                    y=direct_cat_counts
+                ),
+                Bar(
+                    name='news',
+                    x=category_names,
+                    y=news_cat_counts
+                ),
+                Bar(
+                    name='social',
+                    x=category_names,
+                    y=social_cat_counts
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Message Categories by Genre',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Category"
+                }
+            }
         }
+
     ]
     
     # encode plotly graphs in JSON
