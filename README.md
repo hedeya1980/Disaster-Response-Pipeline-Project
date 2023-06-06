@@ -14,7 +14,9 @@
 
 4. Enter `http://127.0.0.1:3000` in the address bar in a browser
 
-## Dependencies for Running Locallyattrs==21.2.0
+## Dependencies for Running Locally
+
+* attrs==21.2.0
 * certifi==2022.6.15
 * click==8.1.3
 * decorator==5.1.0
