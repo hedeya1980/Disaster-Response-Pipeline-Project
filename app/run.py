@@ -35,7 +35,7 @@ def tokenize(text):
 #df = pd.read_sql_table('MessageCategory', engine)
 
 # connect to the database
-conn = sqlite3.connect('../data/DisasterResponse.db')
+conn = sqlite3.connect('./data/DisasterResponse.db')
 
 # run a query
 df=pd.read_sql('SELECT * FROM MessageCategory', conn)
