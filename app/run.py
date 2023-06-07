@@ -43,7 +43,7 @@ df=pd.read_sql('SELECT * FROM MessageCategory', conn)
 # load model
 #model = joblib.load("../models/msg_gnre_pipeline.pkl")
 #model = joblib.load("../models/more_features_model.pkl")
-model = joblib.load("../models/cv_compressed_model.pkl")
+model = joblib.load("./models/cv_compressed_model.pkl")
 
 
 # index webpage displays cool visuals and receives user input text for model
