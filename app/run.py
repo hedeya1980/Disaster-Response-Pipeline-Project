@@ -35,7 +35,7 @@ def tokenize(text):
 #df = pd.read_sql_table('MessageCategory', engine)
 
 # connect to the database
-conn = sqlite3.connect('./data/DisasterResponse.db')
+conn = sqlite3.connect('../data/DisasterResponse.db')
 
 # run a query
 df=pd.read_sql('SELECT * FROM MessageCategory', conn)
@@ -43,7 +43,7 @@ df=pd.read_sql('SELECT * FROM MessageCategory', conn)
 # load model
 #model = joblib.load("../models/msg_gnre_pipeline.pkl")
 #model = joblib.load("../models/more_features_model.pkl")
-model = joblib.load("./models/cv_compressed_model.pkl")
+model = joblib.load("../models/cv_compressed_model.pkl")
 
 
 # index webpage displays cool visuals and receives user input text for model
@@ -164,9 +164,9 @@ def go():
     )
 
 
-#def main():
-#    app.run(host='0.0.0.0', port=3000, debug=True)
+def main():
+    app.run(host='0.0.0.0', port=3000, debug=True)
 
 
-#if __name__ == '__main__':
-#    main()
+if __name__ == '__main__':
+    main()
