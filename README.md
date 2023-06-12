@@ -31,7 +31,7 @@
 * MarkupSafe==2.1.2
 * nltk==3.8.1
 * nbformat==5.1.3
-* numpy @ file:///D:/Downloads/numpy-1.21.2%2Bmkl-cp310-cp310-win_amd64.whl
+* numpy==1.21.2
 * pandas==2.0.0
 * plotly==5.13.1
 * pyrsistent==0.18.0
@@ -39,8 +39,10 @@
 * pytz==2021.3
 * requests==2.28.1
 * six==1.16.0
-* sklearn==0.0
+* scikit-learn==1.1.1
 * traitlets==5.1.0
 * typing_extensions==4.5.0
 * urllib3==1.26.12
 * Werkzeug==2.3.4
+
+## The application is up and running at [this link](https://hedeya-disaster-response-app.herokuapp.com/)
