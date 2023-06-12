@@ -1,4 +1,5 @@
 #from responseapp import app
+import __main__
 
 import json
 import plotly
@@ -20,6 +21,8 @@ from sklearn.base import BaseEstimator, TransformerMixin
 from app.classDefs import ItemSelector, StartingVerbExtractor, MessageLengthExtractor
 
 app = Flask(__name__)
+
+__main__.ItemSelector = ItemSelector
 
 def tokenize(text):
     tokens = word_tokenize(text)
