@@ -15,7 +15,7 @@ from plotly.graph_objs import Bar
 import joblib
 #from sqlalchemy import create_engine
 
-from classDefs import ItemSelector, StartingVerbExtractor, MessageLengthExtractor
+from app.classDefs import ItemSelector, StartingVerbExtractor, MessageLengthExtractor
 
 app = Flask(__name__)
 
