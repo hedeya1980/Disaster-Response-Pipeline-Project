@@ -14,6 +14,8 @@
 
 4. Enter `http://127.0.0.1:3000` in the address bar in a browser
 
+## The application is up and running at [this link](https://hedeya-disaster-response-app.herokuapp.com/)
+
 ## Dependencies for Running Locally
 
 * attrs==21.2.0
@@ -45,4 +47,3 @@
 * urllib3==1.26.12
 * Werkzeug==2.3.4
 
-## The application is up and running at [this link](https://hedeya-disaster-response-app.herokuapp.com/)
