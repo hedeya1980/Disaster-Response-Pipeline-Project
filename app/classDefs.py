@@ -94,5 +94,5 @@ class MessageLengthExtractor(BaseEstimator, TransformerMixin):
         return pd.DataFrame(X_len)
 
             
-if __name__ == '__main__':
-    main()
+#if __name__ == '__main__':
+#    main()
