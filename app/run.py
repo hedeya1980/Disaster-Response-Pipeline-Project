@@ -18,7 +18,7 @@ import joblib
 from sklearn.base import BaseEstimator, TransformerMixin
 
 
-from app.classDefs import ItemSelector, StartingVerbExtractor, MessageLengthExtractor
+from app.classDefs import ItemSelector, tokenize, StartingVerbExtractor, MessageLengthExtractor
 
 app = Flask(__name__)
 
