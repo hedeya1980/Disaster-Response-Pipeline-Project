@@ -23,6 +23,9 @@ from app.classDefs import ItemSelector, StartingVerbExtractor, MessageLengthExtr
 app = Flask(__name__)
 
 __main__.ItemSelector = ItemSelector
+__main__.tokenize = tokenize
+__main__.StartingVerbExtractor = StartingVerbExtractor
+__main__.MessageLengthExtractor = MessageLengthExtractor
 
 def tokenize(text):
     tokens = word_tokenize(text)
