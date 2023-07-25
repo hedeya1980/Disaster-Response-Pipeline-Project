@@ -19,7 +19,7 @@ from sklearn.base import BaseEstimator, TransformerMixin
 
 
 #from app.classDefs import ItemSelector, tokenize, StartingVerbExtractor, MessageLengthExtractor # Heroku
-from classDefs import ItemSelector, tokenize, StartingVerbExtractor, MessageLengthExtractor # Streamlit
+from app.classDefs import ItemSelector, tokenize, StartingVerbExtractor, MessageLengthExtractor # Streamlit
 
 app = Flask(__name__)
 
