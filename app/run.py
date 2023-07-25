@@ -18,8 +18,7 @@ import joblib
 from sklearn.base import BaseEstimator, TransformerMixin
 
 
-#from app.classDefs import ItemSelector, tokenize, StartingVerbExtractor, MessageLengthExtractor # Heroku
-from app.classDefs import ItemSelector, tokenize, StartingVerbExtractor, MessageLengthExtractor # Streamlit
+from app.classDefs import ItemSelector, tokenize, StartingVerbExtractor, MessageLengthExtractor # Heroku
 
 app = Flask(__name__)
 
